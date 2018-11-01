@@ -1,0 +1,104 @@
+<% include partials/admin_header %>
+
+<style type="text/css">
+  body{
+    background: linear-gradient(to right, #654ea3, #eaafc8);
+  }
+</style>
+
+<div class="container bg-hsla mt-5 mb-5 rounded ">
+<h1 class="text-center text-white font1"><%= member.name%></h1>
+   <div class="text-center">
+       <img src="<%=member.pic_url%>" class="img-thumbnail mt-3 mb-3" style="width: 30%">
+   </div>
+   <div class="form-control">
+      <div class="row">
+         <h4 class="col-md-4 font2">Father's Name:</h4>
+         <h4 class="col-md-8 font3"><%= member.father_name%></h4>
+      </div>
+
+   <div class="row">
+         <h4 class="col-md-4 font2">Age:</h4>
+         <h4 class="col-md-8 font3"><%= member.age%></h4>
+   </div>
+
+   <div class="row">
+         <h4 class="col-md-4 font2">Phone No.:</h4>
+         <h4 class="col-md-8 font3"><%= member.mobile%></h4>
+   </div>
+   
+   <div class="row">
+         <h4 class="col-md-4 font2">Gym Fee:</h4>
+         <h4 class="col-md-8 font3"><%= member.gym_fee%></h4>
+   </div>
+   <div class="row">
+         <h4 class="col-md-4 font2">Cardio Fee:</h4>
+         <h4 class="col-md-8 font3"><%= member.cardio_fee%></h4>
+   </div>
+
+   <div class="row">
+         <h4 class="col-md-4 font2">Joining Date:</h4>
+         <h4 class="col-md-8 font3"><%= member.joiningDate%></h4>
+   </div>
+
+   <div class="row">
+         <h4 class="col-md-4 font2">Payment Id:</h4>
+         <h4 class="col-md-8 font3"><%= member.pay_id%></h4>
+   </div>
+</div>
+
+<% if (currentUser.isAdmin){%>
+<div class="text-center">
+<a href="<%=member._id%>/edit" class="btn btn-primary mt-3 " role="button">Edit this member</a>
+</div>
+<div class="text-center">
+<a href="<%=member._id%>/pay" class="btn btn-success mt-3 " role="button">Payment</a>
+</div>
+<form action="/member/<%=member._id%>?_method=DELETE" method= "POST">
+   <div class="text-center">
+      <button class="btn btn-danger mt-3 mb-3">Delete this member</button>
+   </div>
+</form>
+<%} %>
+
+
+<!-- Unpaid table -->
+<div class="form-control mb-5">
+<div class="table-wrapper">
+   <table class="table table-striped table-hover ">
+      <tr class="bg-warning text-center"><th><h3>Unpaid Payments</h3></th></tr>
+   </table>
+   </div>
+<div class="table-wrapper">
+   <table class="table table-hover table-striped ">
+      <tbody>
+<% if(unpaid_dates.length <1){ %>
+   <h4>Currently no unpaid date</h4>
+<%} else{unpaid_dates.forEach(function(date){%>
+   <tr><td><h4><%=date%></h4></td></tr>
+<%})} %>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<!-- paid table -->
+<div class="form-control mb-5 ">
+<div class="table-wrapper ">
+   <table class="table table-striped table-hover ">
+      <tr class="bg-warning text-center"><th><h3>Paid Payments</h3></th></tr>
+   </table>
+   </div>
+<div class="table-wrapper">
+   <table class="table table-hover table-striped ">
+      <tbody>
+         <%member.paid_dates.forEach(function(date){%>
+         <tr><td><h4><%=date%></h4></td></tr>
+         <%})%>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>

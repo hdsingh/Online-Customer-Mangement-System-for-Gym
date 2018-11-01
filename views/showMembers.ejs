@@ -1,0 +1,54 @@
+<% include partials/admin_header %>
+<style type="text/css">
+  body{
+    background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+  }
+</style>
+
+
+<h1 class="text-center font1 mt-5">All Members
+   <i class=" fa fa-address-book-o" aria-hidden="true"></i>
+</h1>
+
+<div class="container mt-5 mb-5 border bg-light">
+   <h2 class="text-center mt-4">Search Members
+      <i class="fa fa-search" aria-hidden="true"></i>
+   </h2>
+
+   <form action="/search" method="POST">
+      <div class="col-md-6">
+   	<label class="mt-4">Enter name to Search:</label>
+   	<input  class="form-control type="search" name="name">
+   	<button class="btn btn-primary mt-2">Submit</button>
+      </div>
+   </form>
+   <form action="/searchById" method="POST">
+      <div class="col-md-6 mt-4">
+      <label class="mt-4">Enter ID to Search:</label>
+      <input  class="form-control type="search" name="search_id">
+      <button class="btn btn-primary mt-2 mb-5">Submit</button>
+      </div>
+   </form>
+</div>
+
+
+<div class="container bg-hsla mt-5">
+<% members.forEach(function(member){ %> 
+   <h1 class="text-center text-white"></h1>
+   <div class="text-center">
+      <img src="<%= member.pic_url%>" class="img-thumbnail mt-2 mb-2" style="width: 30%">
+   </div>
+   <div class="form-control">
+
+      <h2 class="font3"><i class="fa fa-user mr-3" aria-hidden="true"></i><%= member.name%></h2>
+      <h5><i class="fa fa-user mr-3" aria-hidden="true"></i><%= member.father_name%></h5>
+      <h5><i class="fa fa-phone mr-3" aria-hidden="true"></i><%= member.mobile%></h5>
+      <h5><i class="fa fa-credit-card mr-3" aria-hidden="true"></i><%= member.pay_id%></h5>
+   </div>
+   <div class="text-center">
+   <a href="/member/<%= member._id%>" class="btn btn-secondary mt-3" role="button">View this member</a>
+   </div>
+   <hr><hr><hr>
+
+<%})%>
+</div>

@@ -1,0 +1,39 @@
+<% include partials/admin_header %>
+
+<div class="container form-group border bg-light rounded mt-5 mb-5 shadow-lg">
+  <h1 class="text-center font1 mt-5">Edit Member</h1>
+  <form action="/member/<%= member._id%>?_method=PUT" method="POST">
+    <div class="text-center">
+	    <img src="<%=member.pic_url%>" class="img-thumbnail" style="width: 30%">
+    </div>
+	<label>Name:</label>
+	<input class="form-control mb-4 font2" type="text" name="member[name]" value="<%=member.name%>">
+    
+    <label>Father's Name</label>
+	<input class="form-control mb-4" type="text" name="member[father_name]" value="<%=member.father_name%>" >
+	
+	<div class="form-row">
+	    <div class="form-group col-md-4">
+	    	<label>Age:</label>
+			<input class="form-control mb-4" type="number" name="member[age]" value="<%= member.age%>" >
+		</div>
+	    <div class="form-group col-md-8">
+	    	<label>Mobile Number:</label>
+		    <input class="form-control mb-4" type="number" name="member[mobile]" value="<%= member.mobile%>" >
+	     </div>
+     </div> 
+     <div class="form-row">
+	    <div class="form-group col-md-6">
+	    	<label>Gym Fee:</label>
+	    	<input class="form-control  mb-4" type="number" name="member[gym_fee]" value="<%= member.gym_fee%>">
+	    </div>
+	    <div class="form-group col-md-6">
+	    	<label>Cardio Fee:</label>
+	    	<input class="form-control mb-4" type="number" name="member[cardio_fee]" value="<%= member.cardio_fee%>">
+	    </div>
+  </div>
+  <div class="text-center">
+	<button class="btn btn-danger">Submit</button>
+  </div>
+</form>
+</div>

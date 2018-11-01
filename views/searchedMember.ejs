@@ -1,0 +1,31 @@
+<% include partials/admin_header %>
+
+<style type="text/css">
+  body{
+    background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+  }
+</style>
+<div class="text-center">
+  <h2 class="font1">Showing searched Member</h2>
+</div>
+
+<div class="container bg-hsla mt-5">
+<% members.forEach(function(member){ %>
+   <h1 class="text-center text-white"></h1>
+   <div class="text-center">
+      <img src="<%= member.pic_url%>" class="img-thumbnail mt-2 mb-2" style="width: 30%">
+   </div>
+   <div class="form-control">
+
+      <h2 class="font3"><i class="fa fa-user mr-3" aria-hidden="true"></i><%= member.name%></h2>
+      <h5><i class="fa fa-user mr-3" aria-hidden="true"></i><%= member.father_name%></h5>
+      <h5><i class="fa fa-phone mr-3" aria-hidden="true"></i><%= member.mobile%></h5>
+      <h5><i class="fa fa-credit-card mr-3" aria-hidden="true"></i><%= member.pay_id%></h5>
+   </div>
+   <div class="text-center">
+   <a href="/member/<%= member._id%>" class="btn btn-secondary mt-3" role="button">View this member</a>
+   </div>
+   <hr><hr><hr>
+
+<%})%>
+</div>

@@ -1,0 +1,55 @@
+<% include partials/admin_header %>
+<!-- <style type="text/css">
+  body{
+    background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+  }
+</style>
+ -->
+
+<div class="container form-group border bg-light rounded mt-5 mb-5 shadow-lg">
+  <h1 class="text-center font1 mt-5">Add Member</h1>
+<form action="/addMember" method="Post" enctype="multipart/form-data">
+
+	<label class="mt-4">Pic:</label>
+	<input class="form-control mb-4" type="file"  name="img" required>
+
+	<label>Name:</label>
+	<input class="form-control mb-4" type="text" name="member[name]" placeholder="Name" required>
+ 
+
+	<label>Father's name:</label>
+	<input class="form-control mb-4" type="text" name="member[father_name]" placeholder="Father's Name" required>
+  
+  <div class="form-row">
+    <div class="form-group col-md-4">
+    	<label>Age:</label>
+    	<input class="form-control mb-4" type="number" name="member[age]" placeholder="Age" required>
+    </div>
+    <div class="form-group col-md-8">
+    	<label>Mobile Number:</label>
+    	<input class="form-control mb-4" type="text" name="member[mobile]" placeholder="Mobile no." required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+    	<label>Gym Fee:</label>
+    	<input class="form-control  mb-4" type="number" name="member[gym_fee]" value="600" required>
+    </div>
+    <div class="form-group col-md-6">
+    	<label>Cardio Fee:</label>
+    	<input class="form-control mb-4" type="number" name="member[cardio_fee]" value="400" required>
+    </div>
+  </div>
+
+	<label>Joining Date</label>
+	<input class="form-control mb-4" type="Date" name="member[joiningDate]"  required>
+	
+	<label>Payment Id:</label>
+	<input class="form-control mb-4" type="number" name="member[pay_id]" placeholder="Payment id"  required>
+  
+  <div class="text-center">
+	<button class="btn btn-primary mt-4 mb-5">Submit</button>
+  </div>
+</form>
+</div>
+

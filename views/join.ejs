@@ -1,0 +1,39 @@
+<% include partials/header %>
+
+<link rel="stylesheet" type="text/css" href="/stylesheets/pricing.css">
+
+<style type="text/css">
+  body{
+    background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+  }
+</style>
+
+<!-- <div class="container">
+	<div class="jumbotron">
+		<h1 class="text-center">Contact Info</h1>
+		<form>
+			<input type="text" name="name">
+			<input type="text" name="mobile">
+		</form>
+	</div>
+</div>
+ -->
+<div class="container mt-5 p-5 text-center col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
+<div class="jumbotron">
+  <h1 class="display-4 font1">Contact Info</h1>
+  <hr>
+  <form action="/join" method="POST">
+  	<div class="row">
+  		<div class="col-lg-6 col-md-12 col-sm-12">
+		    <input type="text" placeholder="Name" name="new[name]" class="form-control mt-3 "  required>
+		</div>
+		<div class="col-lg-6 col-md-12 col-sm-12">
+		    <input type="text" placeholder="Mobile No." name="new[mobile]" class="form-control mt-3 "  required>
+		</div>
+    </div>
+    <div class="text-center mt-3">
+            <button class="btn btn-success">Submit</button>
+     </div>
+  </form>
+</div>
+</div>

@@ -1,0 +1,66 @@
+<% include partials/admin_header %>
+
+<style type="text/css">
+  body{
+    background: linear-gradient(to right, #ba5370, #f4e2d8);
+  }
+</style>
+
+
+<div class="container">
+	<div class="text-center">
+		<h1><i class="fa fa-money fa-2x" aria-hidden="true"></i></h1>
+	</div>
+<div class="form-control mb-5 mt-5 shadow">
+  <p>Total unpaid payments: <strong><%=unpaid_members.length%></strong></p>
+<div class="table-wrapper">
+   <table class="table table-striped table-hover ">
+      <tr class="bg-warning text-center"><th><h3>Unpaid Payments</h3></th></tr>
+   </table>
+   </div>
+<div class="table-wrapper">
+   <table class="table table-hover table-striped ">
+      	<thead>
+      		<tr>
+      			<th>Name</th>
+      			<th>Info</th>
+      		</tr>
+      	</thead>
+      	<tbody>
+<%unpaid_members.forEach(function(member){ %>
+     <tr>
+     	<td><h4><%= member.name%></h4></td>
+        <td><h4><a href="member/<%=member._id%>">View member</a></h4></td>
+    </tr>
+
+<%})%>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div class="form-control mb-5 mt-5 shadow">
+    <p>Total paid payments: <strong><%=paid_members.length%></strong></p>
+<div class="table-wrapper">
+   <table class="table table-striped table-hover ">
+      <tr class="bg-warning text-center"><th><h3>Paid Payments</h3></th></tr>
+   </table>
+   </div>
+<div class="table-wrapper">
+   <table class="table table-hover table-striped ">
+      	<thead>
+      		<tr>
+      			<th>Name</th>
+      			<th>Info</th>
+      		</tr>
+      	</thead>
+      	<tbody>
+<%paid_members.forEach(function(member){ %>
+     <tr>
+     	<td><h4><%= member.name%></h4></td>
+        <td><h4><a href="member/<%=member._id%>">View member</a></h4></td>
+     </tr>
+<%})%>
+
+</div>
